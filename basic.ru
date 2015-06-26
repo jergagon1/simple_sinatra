@@ -1,7 +1,11 @@
-require 'sinatra'
+require 'sinatra/base'
 
-get "/"  do
- "Hello World!"
+class MyApp < Sinatra::Base
+
+  get "/hello/:name"  do
+   "Hello #{params[:name]}"
+  end
+
 end
 
-run Sinatra::Application.run!
+run MyApp.run!
